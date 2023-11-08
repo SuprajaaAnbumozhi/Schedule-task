@@ -5,7 +5,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = "postgresql://suprajaa@localhost:5432/leo_db" 
+  url      = "postgresql://suprajaa@localhost:5432/leo_db"  //Replace this
 }
 
 model Schedule {
