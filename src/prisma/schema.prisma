@@ -1,0 +1,28 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "./generated/client"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = "postgresql://suprajaa@localhost:5432/leo_db" 
+}
+
+model Schedule {
+  id       String   @id @default(uuid())
+  accountId Int
+  agentId   Int
+  startTime DateTime
+  endTime   DateTime
+  tasks     Task[]
+}
+
+model Task {
+  id          String   @id @default(uuid())
+  accountId  Int
+  startTime  DateTime
+  duration   Int
+  type       String
+  schedule   Schedule @relation(fields: [scheduleId], references: [id])
+  scheduleId String
+}
